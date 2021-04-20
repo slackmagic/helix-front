@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import AuthContext from "./AuthContext";
-import HelixAuth, { IUser } from "../../services/HelixAuth";
+//import HelixAuth from "../../services/HelixAuth";
+import {IUser,  IRefreshToken} from "helix-shared-tsx";
+import HelixAuth from "helix-shared-tsx/dist/services/HelixAuth";
 
 type Props = {
 	children?: JSX.Element | JSX.Element[];
@@ -24,6 +26,7 @@ export default function AuthProvider({ children }: Props) {
 	}, []);
 
 	const loadUserFromStorage = async () => {
+		//TODO: Check if existing before load
 		//setUser(helixAuth.loadUserFromStorage());
 	};
 

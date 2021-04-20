@@ -1,6 +1,5 @@
 import React from "react";
-import {IUser} from  "../../services/HelixAuth";
-
+import {IUser} from "helix-shared-tsx";
 
 type AuthContextType = {
 	user?: IUser;
