@@ -1,48 +1,39 @@
-import "./Home.css";
-import mainTheme from "../../components/theme/MainTheme";
-import { Box, Container } from "@material-ui/core";
+//import "./Home.css";
+import { Collapse, CssBaseline } from "@material-ui/core";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { useEffect, useState } from "react";
 import MainHeader from "../../components/header/MainHeader";
+import MainTheme from "../../components/theme/MainTheme";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		padding: theme.spacing(14, 0, 6),
-		color: "white",
-		backgroundColor: "#121212",
-	},
-	logo: {
-		height: "50px",
-	},
-	box: {
-		textAlign: "center",
-		color: theme.palette.text.secondary,
-		fontSize: "50px",
+		minHeight: "100vh",
+		background: "linear-gradient(45deg, #206596 30%, #4d3066 90%)",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "cover",
+		padding: theme.spacing(6, 0, 6),
 	},
 }));
 
 function Home() {
 	const classes = useStyles();
+	const [checked, setChecked] = useState(false);
+
+	useEffect(() => {
+		setChecked(true);
+	}, []);
+
 	return (
-		<>
-			<ThemeProvider theme={mainTheme}>
-				<MainHeader />
-				<Container maxWidth="sm" className={classes.box}>
-					<Box my={4}>
-						<br />
-						<img
-							className={classes.logo}
-							src="logo192.png"
-							alt="react logo"
-						></img>
-						<img
-							className={classes.logo}
-							src="rust-logo-blk.svg"
-							alt="rust logo"
-						></img>
-					</Box>
-				</Container>
+		<div className={classes.root}>
+			<ThemeProvider theme={MainTheme}>
+				<Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+					<>
+						<CssBaseline />
+						<MainHeader />
+					</>
+				</Collapse>
 			</ThemeProvider>
-		</>
+		</div>
 	);
 }
 

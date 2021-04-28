@@ -1,41 +1,33 @@
-import mainTheme from "../../components/theme/MainTheme";
-import { Container, Button, Box } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
-import MainHeader from "../../components/header/MainHeader";
+import { Container, CssBaseline } from "@material-ui/core";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Menu from "../../components/menu/Menu";
-import Login from "../../components/login/Login";
-import { useAuth } from "../../components/auth/AuthHook";
+import HeaderAppBar from "../../components/appbar/HeaderAppBar";
+import { useAuth } from "helix-shared-ui-lib";
+import LoginForm from "../../components/login/LoginForm";
+import mainTheme from "../../components/theme/MainTheme";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		minHeight: "100vh",
+		background: "linear-gradient(45deg, #206596 30%, #4d3066 90%)",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "cover",
+		padding: theme.spacing(0, 0, 6),
+	},
+}));
 
 export default function Dashboard() {
-	const { user, isAuthenticated, logout } = useAuth();
-
-	const handleLogout = () => {
-		logout();
-	};
-
+	const classes = useStyles();
+	const { isAuthenticated } = useAuth();
 	return (
-		<>
+		<div className={classes.root}>
 			<ThemeProvider theme={mainTheme}>
-				<MainHeader reduced={isAuthenticated} />
+				<CssBaseline />
+				<HeaderAppBar />
 				<Container maxWidth="sm">
-					{isAuthenticated ? (
-						<>
-							<Menu />
-							<Box my={4}>
-								Hello {user?.name}
-								<br />
-								USER UUID: {user?.user_uuid}
-								<br />
-								<Button variant="contained" onClick={handleLogout}>
-									🚪 LOGOUT
-								</Button>
-							</Box>
-						</>
-					) : (
-						<Login />
-					)}
+					{isAuthenticated ? <Menu /> : <LoginForm />}
 				</Container>
 			</ThemeProvider>
-		</>
+		</div>
 	);
 }

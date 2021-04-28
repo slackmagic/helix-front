@@ -1,7 +1,6 @@
-import * as React from "react";
 import { LOGIN_URL} from "../../constants";
 import { Redirect, Route, RouteProps} from "react-router";
-import { useAuth } from "./AuthHook";
+import { useAuth } from "helix-shared-ui-lib";
 
 
 interface PrivateRouteProps extends RouteProps {
@@ -10,7 +9,7 @@ interface PrivateRouteProps extends RouteProps {
 }
 
 const PrivateRoute = (props: PrivateRouteProps) => {
-    const { isAuthenticated} = useAuth();
+    const {isAuthenticated} = useAuth();
     const { component: Component,  ...rest } = props;
     return (
         <Route

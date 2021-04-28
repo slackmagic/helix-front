@@ -1,25 +1,22 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route } from "react-router";
 import { createBrowserHistory } from "history";
 import "./index.css";
-import Home from "./pages/home/Home";
 import reportWebVitals from "./reportWebVitals";
-import PrivateRoute from "./components/auth/PrivateRoute";
+import Home from "./pages/home/Home";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Private from "./pages/private/Private";
 import { LOGIN_URL } from "./constants";
-import AuthProvider from "./components/auth/AuthProvider";
+import PrivateRoute from "./components/router/PrivateRoute";
+import { AuthProvider } from "helix-shared-ui-lib";
 
 ReactDOM.render(
 	<AuthProvider>
-		<React.StrictMode>
-			<Router history={createBrowserHistory()}>
-				<Route exact path="/" component={Home} />
-				<Route path={LOGIN_URL} component={Dashboard} />
-				<PrivateRoute path="/private" component={Private} />
-			</Router>
-		</React.StrictMode>
+		<Router history={createBrowserHistory()}>
+			<Route exact path="/" component={Home} />
+			<Route path={LOGIN_URL} component={Dashboard} />
+			<PrivateRoute path="/private" component={Private} />
+		</Router>
 	</AuthProvider>,
 	document.getElementById("root")
 );
