@@ -6,12 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/home/Home";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Private from "./pages/private/Private";
-import { LOGIN_URL } from "./constants";
+import { LOGIN_URL, LOGIN_HOST } from "./constants";
 import PrivateRoute from "./components/router/PrivateRoute";
 import { AuthProvider } from "helix-shared-ui-lib";
 
 ReactDOM.render(
-	<AuthProvider>
+	<AuthProvider login_url={LOGIN_HOST}>
 		<Router history={createBrowserHistory()}>
 			<Route exact path="/" component={Home} />
 			<Route path={LOGIN_URL} component={Dashboard} />
