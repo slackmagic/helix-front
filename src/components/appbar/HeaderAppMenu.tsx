@@ -25,19 +25,19 @@ export default function HeaderAppMenu() {
 	};
 
 	const handleMemoriz = () => {
-		history.push("/memoriz");
+		history.push("/memoriz/");
 	};
 
 	const handleGrimoire = () => {
-		history.push("/grimoire");
+		history.push("/grimoire/");
 	};
 
 	const handleElixir = () => {
-		history.push("/elixir");
+		history.push("/elixir/");
 	};
 
 	const handleWowTracker = () => {
-		history.push("/wowtracker");
+		history.push("/wowtracker/");
 	};
 
 	const handleMenuClose = () => {
