@@ -56,17 +56,18 @@ jobs:
         # uses: TheDoctor0/zip-release@4fb9e4ff72847dd3d1c111cf63834e353ed7cb3d
         uses: TheDoctor0/zip-release@0.6.0
         with:
+          filename: release_${{ matrix.node-version }}.zip
           # Base path for archive files
           path: ./build
+          
       
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          draft: true
           files: |
-            ./release.zip
+            ./release_${{ matrix.node-version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       
