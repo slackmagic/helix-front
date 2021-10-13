@@ -64,7 +64,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: release_package
           release_name: Release ${{ github.ref }}
           files: |
             ./release_${{ matrix.node-version }}.zip
