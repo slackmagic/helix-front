@@ -1,0 +1,18 @@
+.mainAppBar {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+	height: 32px;
+	margin-right: 0.5em;
+}
+
+.bottomBar {
+	background: linear-gradient(90deg, #e91e63 0%, purple 100%);
+	min-height: 4px;
+	max-width: 100%;
+}
+
+.title {
+	flex-grow: 1;
+}

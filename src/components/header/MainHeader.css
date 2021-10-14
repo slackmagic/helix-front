@@ -1,0 +1,21 @@
+.mainHeader {
+	padding: 5em 0em 5em 0em;
+	color: #e91e63;
+	width: 100%;
+}
+
+.mainTitle {
+	font-family: "Share Tech Mono";
+	color: white;
+}
+
+.logoHeader {
+	height: 200px;
+	animation: glowing 5s infinite;
+}
+
+@keyframes glowing {
+	50% {
+		filter: drop-shadow(2px 0px 4px #c42c3e);
+	}
+}

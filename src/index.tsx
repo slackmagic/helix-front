@@ -12,13 +12,14 @@ import { LOGIN_URL, LOGIN_HOST } from "./constants";
 import reportWebVitals from "./reportWebVitals";
 import PrivateRoute from "./components/router/PrivateRoute";
 import { AuthProvider } from "helix-shared-ui-lib";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 ReactDOM.render(
 	<AuthProvider login_url={LOGIN_HOST}>
 		<Router history={createBrowserHistory()}>
 			<Route exact path="/" component={Home} />
 			<Route path={LOGIN_URL} component={Login} />
-			<PrivateRoute path="/private" component={Private} />
+			<Route path="/dashboard" component={Dashboard} />
 		</Router>
 	</AuthProvider>,
 	document.getElementById("root")
