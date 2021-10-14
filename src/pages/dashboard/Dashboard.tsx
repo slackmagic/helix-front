@@ -1,33 +1,26 @@
-import { Container, CssBaseline } from "@material-ui/core";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import Menu from "../../components/menu/Menu";
-import HeaderAppBar from "../../components/appbar/HeaderAppBar";
-import { useAuth } from "helix-shared-ui-lib";
+import { Container, CssBaseline, ThemeProvider } from "@mui/material";
 import LoginForm from "../../components/login/LoginForm";
 import mainTheme from "../../components/theme/MainTheme";
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		minHeight: "100vh",
-		background: "linear-gradient(45deg, #206596 30%, #4d3066 90%)",
-		backgroundRepeat: "no-repeat",
-		backgroundSize: "cover",
-		padding: theme.spacing(0, 0, 6),
-	},
-}));
+import ApplicationBar from "../../components/appbar/ApplicationBar";
+import { useAuth } from "helix-shared-ui-lib";
 
 export default function Dashboard() {
-	const classes = useStyles();
 	const { isAuthenticated } = useAuth();
 	return (
-		<div className={classes.root}>
-			<ThemeProvider theme={mainTheme}>
+		<ThemeProvider theme={mainTheme}>
+			<div className="root">
 				<CssBaseline />
-				<HeaderAppBar />
+				<ApplicationBar />
 				<Container maxWidth="sm">
-					{isAuthenticated ? <Menu /> : <LoginForm />}
+					{isAuthenticated ? (
+						<>
+							<h1>Connected</h1>
+						</>
+					) : (
+						<LoginForm />
+					)}
 				</Container>
-			</ThemeProvider>
-		</div>
+			</div>
+		</ThemeProvider>
 	);
 }

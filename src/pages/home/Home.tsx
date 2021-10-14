@@ -1,22 +1,25 @@
-//import "./Home.css";
-import { Collapse, CssBaseline } from "@material-ui/core";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import "./Home.css";
+import {
+	Button,
+	Collapse,
+	Container,
+	CssBaseline,
+	Typography,
+} from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import MainHeader from "../../components/header/MainHeader";
 import MainTheme from "../../components/theme/MainTheme";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		minHeight: "100vh",
-		background: "linear-gradient(45deg, #206596 30%, #4d3066 90%)",
-		backgroundRepeat: "no-repeat",
-		backgroundSize: "cover",
-		padding: theme.spacing(6, 0, 6),
+const customTheme = createTheme(MainTheme, {
+	palette: {
+		background: {
+			default: "#272727",
+		},
 	},
-}));
+});
 
 function Home() {
-	const classes = useStyles();
 	const [checked, setChecked] = useState(false);
 
 	useEffect(() => {
@@ -24,16 +27,19 @@ function Home() {
 	}, []);
 
 	return (
-		<div className={classes.root}>
-			<ThemeProvider theme={MainTheme}>
+		<ThemeProvider theme={customTheme}>
+			<div className="root">
 				<Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
 					<>
 						<CssBaseline />
 						<MainHeader />
+						<Container maxWidth="sm">
+							<Button variant="contained">Click me</Button>
+						</Container>
 					</>
 				</Collapse>
-			</ThemeProvider>
-		</div>
+			</div>
+		</ThemeProvider>
 	);
 }
 

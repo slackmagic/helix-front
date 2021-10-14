@@ -6,13 +6,13 @@ import {
 	ListItemText,
 	Menu,
 	MenuItem,
-} from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import PersonIcon from "@material-ui/icons/Person";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+} from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PersonIcon from "@mui/icons-material/AccountCircle";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useAuth } from "helix-shared-ui-lib";
 
-export default function HeaderAppMenuUser() {
+export default function ApplicationBarUser() {
 	const { user, logout } = useAuth();
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isMenuOpen = Boolean(anchorEl);
