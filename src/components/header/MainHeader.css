@@ -16,6 +16,6 @@
 
 @keyframes glowing {
 	50% {
-		filter: drop-shadow(2px 0px 4px #c42c3e);
+		filter: drop-shadow(0px 2px 6px #c42c3e);
 	}
 }

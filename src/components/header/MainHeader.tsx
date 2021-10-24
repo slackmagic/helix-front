@@ -1,8 +1,6 @@
 import "./MainHeader.css";
 import { Container, Typography } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { APP_TITLE, APP_SUBTITLE } from "../../constants";
-import mainTheme from "../theme/MainTheme";
 
 export default function MainHeader() {
 	return (

@@ -1,0 +1,13 @@
+.dashboard-container {
+	padding-top: 2em;
+}
+
+.dashboard-header {
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+.dashboard-menu {
+	padding: 1em;
+	height: 5em;
+}
