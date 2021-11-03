@@ -30,22 +30,22 @@ export default function Dashboard() {
 				<Container maxWidth="md" className="dashboard-container">
 					<Paper className="dashboard-header">
 						<Typography variant="h4">
-							Welcome {capitalize(user?.name)},
+							Welcome {capitalize(user?.name)}
 						</Typography>
 						<Typography color="primary">{user?.user_uuid}</Typography>
 					</Paper>
 					<Grid container spacing={2}>
 						<Grid item xs={6} md={4} lg={3}>
-							<Paper className="dashboard-menu">APPLICATION</Paper>
+							<Paper className="dashboard-menu">MEMORIZ</Paper>
 						</Grid>
 						<Grid item xs={6} md={4} lg={3}>
-							<Paper className="dashboard-menu">APPLICATION</Paper>
+							<Paper className="dashboard-menu">GRIMOIRE</Paper>
 						</Grid>
 						<Grid item xs={6} md={4} lg={3}>
-							<Paper className="dashboard-menu">APPLICATION</Paper>
+							<Paper className="dashboard-menu">WOW_TRACKER</Paper>
 						</Grid>
 						<Grid item xs={6} md={4} lg={3}>
-							<Paper className="dashboard-menu">APPLICATION</Paper>
+							<Paper className="dashboard-menu">USER_MGT</Paper>
 						</Grid>
 					</Grid>
 				</Container>

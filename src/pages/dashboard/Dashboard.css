@@ -7,6 +7,16 @@
 	margin-bottom: 1em;
 }
 
+.dashboard-header .title {
+	background-color: #e91e63;
+	color: black;
+}
+
+.dashboard-header .subtitle {
+	background-color: #e91e63;
+	color: black;
+}
+
 .dashboard-menu {
 	padding: 1em;
 	height: 5em;
